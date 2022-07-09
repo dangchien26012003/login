@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+
+        body {
+            background-image: url('https://images.unsplash.com/photo-1432821596592-e2c18b78144f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bG9naW58ZW58MHx8MHx8&w=1000&q=80');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .wapper {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center
+        }
+
+        .login {
+            height: 250px;
+            width: 350px;
+            background-color: black;
+            opacity: 0.8;
+            box-shadow: 0 0 10px white;
+        }
+
+        .login .line-header {
+            padding: 30px 0
+        }
+
+        .login .line-header h2{
+            text-align: center;
+            color: white
+        }
+
+        .login .login-input {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            position: relative;
+        }
+
+        .login .login-input .user, .pass{
+            width: 100%;
+            display: flex;
+            justify-content: center
+        }
+
+        .login .login-input input{
+            border: 0;
+            border-bottom: 2px solid #ddd;
+            background: transparent;
+            margin-bottom: 20px;
+            padding: 0 0 3px 25px;
+            outline: none;
+            color: white;
+            width: calc(100% - 60px);
+            font-size: 14px;
+        }
+
+        .login .login-input input::placeholder {
+            color: white;
+        }
+
+        .login a {
+            text-decoration: none
+        }
+
+        .login a .dangnhap{
+            display: flex;
+            justify-content: center;
+            border: 1px solid #ddd;
+            width: 70%;
+            margin: 10px auto;
+            padding: 5px 0;
+        }
+
+        .login a:hover .dangnhap {
+            background-color: red;
+        }
+
+        .login a .dangnhap p{
+            text-transform: uppercase;
+            color: white;
+            text-decoration: none
+        }
+
+        i {
+            color: white;
+            position: absolute;
+            display: block;
+        }
+        
+        .eye i {
+            position: absolute;
+            bottom: 25px;
+            right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wapper">
+        <div class="login">
+            <div class="line-header">
+                <h2>Đăng Nhập</h2>
+            </div>
+
+            <div class="login-input">
+                <div class="user">
+                    <div class="icon-user"><i class="fas fa-user"></i></i></div>
+                    <input type="text" id="user-input" placeholder="Tên đăng nhập">
+                </div>
+                <div class="pass">
+                    <div class="icon-pass"><i class="fas fa-key"></i></div>
+                    <input type="password" id="pass-input" placeholder="Mật khẩu">
+                    <div class="eye">
+                        <i class="fas fa-eye item"></i>
+                        <i class="fas fa-eye-slash item"></i>
+                    </div>
+                </div>
+            </div>
+
+            <a href="#">
+                <div class="dangnhap">
+                    <p href="#" class="line-dangnhap">đăng nhập</p>
+                </div>
+            </a>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.fas.fa-eye-slash').hide()
+            $('.item').click(function() {
+                $('.eye').toggleClass('open');
+                if($('.eye').hasClass('open')) {
+                    $('.fas.fa-eye-slash').fadeIn()
+                    $('.fas.fa-eye').hide()
+                    $('#pass-input').attr('type', 'text')
+                }else{
+                     $('.fas.fa-eye-slash').hide()
+                    $('.fas.fa-eye').fadeIn()
+                    $('#pass-input').attr('type', 'password')
+                }
+            })
+        })
+    </script>
+</body>
+</html>
